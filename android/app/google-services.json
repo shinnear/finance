@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "160249285398",
+    "project_id": "zenfinance-7cfc7",
+    "storage_bucket": "zenfinance-7cfc7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160249285398:android:758d46d5ba9079e085de37",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqGZFlCQ3-wDGWFPy92mCllaFjvADnFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

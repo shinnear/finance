@@ -1,0 +1,857 @@
+{
+  "spending_patterns": {
+    "total_spending": 145236.836,
+    "spending_by_category": [
+      {
+        "category": "Restaurants",
+        "sum": 58025.709229405875,
+        "mean": 60.19264442884427,
+        "count": 964
+      },
+      {
+        "category": "Gas & Fuel",
+        "sum": 23021.307327740305,
+        "mean": 56.286814982250135,
+        "count": 409
+      },
+      {
+        "category": "Utilities",
+        "sum": 11466.946491565286,
+        "mean": 34.748322701712986,
+        "count": 330
+      },
+      {
+        "category": "Groceries",
+        "sum": 7194.087246290105,
+        "mean": 34.9227536227675,
+        "count": 206
+      },
+      {
+        "category": "Fast Food",
+        "sum": 6997.292033184969,
+        "mean": 65.3952526465885,
+        "count": 107
+      },
+      {
+        "category": "Alcohol",
+        "sum": 5337.8561398200345,
+        "mean": 53.37856139820035,
+        "count": 100
+      },
+      {
+        "category": "Home Improvement",
+        "sum": 4890.967189754541,
+        "mean": 49.40370898741961,
+        "count": 99
+      },
+      {
+        "category": "Shopping",
+        "sum": 4799.060672681392,
+        "mean": 36.9158513283184,
+        "count": 130
+      },
+      {
+        "category": "Mortgage & Rent",
+        "sum": 3613.5390011851455,
+        "mean": 63.395421073423606,
+        "count": 57
+      },
+      {
+        "category": "Electronics & Software",
+        "sum": 2961.2947508254365,
+        "mean": 63.006271294158225,
+        "count": 47
+      },
+      {
+        "category": "Auto Insurance",
+        "sum": 2758.1124911168486,
+        "mean": 48.387938440646465,
+        "count": 57
+      },
+      {
+        "category": "Coffee Shops",
+        "sum": 2659.262594549063,
+        "mean": 37.45440274012765,
+        "count": 71
+      },
+      {
+        "category": "Movies & DVDs",
+        "sum": 2483.1983287922,
+        "mean": 63.671752020312816,
+        "count": 39
+      },
+      {
+        "category": "Music",
+        "sum": 2077.106045915769,
+        "mean": 40.727569527760174,
+        "count": 51
+      },
+      {
+        "category": "Mobile Phone",
+        "sum": 1851.6850257807637,
+        "mean": 38.576771370432574,
+        "count": 48
+      },
+      {
+        "category": "Entertainment",
+        "sum": 1810.347659086024,
+        "mean": 38.51803529970264,
+        "count": 47
+      },
+      {
+        "category": "Internet",
+        "sum": 1650.3022226523854,
+        "mean": 37.50686869664512,
+        "count": 44
+      },
+      {
+        "category": "Alcohol & Bars",
+        "sum": 1638.761549653846,
+        "mean": 38.11073371288014,
+        "count": 43
+      }
+    ],
+    "monthly_spending": [
+      {
+        "year_month": "2018-01",
+        "amount": 328.5350573706926
+      },
+      {
+        "year_month": "2018-02",
+        "amount": 236.4306971085275
+      },
+      {
+        "year_month": "2018-03",
+        "amount": 259.92713644495933
+      },
+      {
+        "year_month": "2018-04",
+        "amount": 495.76268673966086
+      },
+      {
+        "year_month": "2018-05",
+        "amount": 672.9676505563573
+      },
+      {
+        "year_month": "2018-06",
+        "amount": 306.36422130889673
+      },
+      {
+        "year_month": "2018-07",
+        "amount": 195.97365174257197
+      },
+      {
+        "year_month": "2018-08",
+        "amount": 203.52134244943616
+      },
+      {
+        "year_month": "2018-09",
+        "amount": 243.75682500698363
+      },
+      {
+        "year_month": "2018-10",
+        "amount": 208.65610096546226
+      },
+      {
+        "year_month": "2018-11",
+        "amount": 268.60366540196094
+      },
+      {
+        "year_month": "2018-12",
+        "amount": 272.94219942159117
+      },
+      {
+        "year_month": "2019-01",
+        "amount": 321.1178245704823
+      },
+      {
+        "year_month": "2019-02",
+        "amount": 197.48793380782314
+      },
+      {
+        "year_month": "2019-03",
+        "amount": 271.3610711562364
+      },
+      {
+        "year_month": "2019-04",
+        "amount": 364.49723486193676
+      },
+      {
+        "year_month": "2019-05",
+        "amount": 324.2321027801498
+      },
+      {
+        "year_month": "2019-06",
+        "amount": 674.6048433766377
+      },
+      {
+        "year_month": "2019-07",
+        "amount": 285.19931274220903
+      },
+      {
+        "year_month": "2019-08",
+        "amount": 259.8522040109722
+      },
+      {
+        "year_month": "2019-09",
+        "amount": 433.1784709748804
+      },
+      {
+        "year_month": "2020-01",
+        "amount": 3237.8083702122426
+      },
+      {
+        "year_month": "2020-02",
+        "amount": 2063.4554049558933
+      },
+      {
+        "year_month": "2020-03",
+        "amount": 2136.584069704765
+      },
+      {
+        "year_month": "2020-04",
+        "amount": 1711.6152824506787
+      },
+      {
+        "year_month": "2020-05",
+        "amount": 1498.0222661582068
+      },
+      {
+        "year_month": "2020-06",
+        "amount": 2233.106748160878
+      },
+      {
+        "year_month": "2020-07",
+        "amount": 2053.2247018464823
+      },
+      {
+        "year_month": "2020-08",
+        "amount": 1902.7140133260145
+      },
+      {
+        "year_month": "2020-09",
+        "amount": 2642.9133078011323
+      },
+      {
+        "year_month": "2020-10",
+        "amount": 2713.0635430695797
+      },
+      {
+        "year_month": "2020-11",
+        "amount": 1913.9786762079968
+      },
+      {
+        "year_month": "2020-12",
+        "amount": 1873.5216308420413
+      },
+      {
+        "year_month": "2021-01",
+        "amount": 2340.2331746495606
+      },
+      {
+        "year_month": "2021-02",
+        "amount": 1596.5611122626067
+      },
+      {
+        "year_month": "2021-03",
+        "amount": 1810.8759596997463
+      },
+      {
+        "year_month": "2021-04",
+        "amount": 2714.977824170935
+      },
+      {
+        "year_month": "2021-05",
+        "amount": 1866.8219165284274
+      },
+      {
+        "year_month": "2021-06",
+        "amount": 1902.127491828331
+      },
+      {
+        "year_month": "2021-07",
+        "amount": 2658.1930553474044
+      },
+      {
+        "year_month": "2021-08",
+        "amount": 2373.62878150618
+      },
+      {
+        "year_month": "2021-09",
+        "amount": 1803.7164082192903
+      },
+      {
+        "year_month": "2021-10",
+        "amount": 2322.872030501674
+      },
+      {
+        "year_month": "2021-11",
+        "amount": 1823.3977624094844
+      },
+      {
+        "year_month": "2021-12",
+        "amount": 2489.295349140363
+      },
+      {
+        "year_month": "2022-01",
+        "amount": 1825.1309118718489
+      },
+      {
+        "year_month": "2022-02",
+        "amount": 2358.5786830021993
+      },
+      {
+        "year_month": "2022-03",
+        "amount": 2731.666193659714
+      },
+      {
+        "year_month": "2022-04",
+        "amount": 2211.2895500609206
+      },
+      {
+        "year_month": "2022-05",
+        "amount": 2170.9381648177095
+      },
+      {
+        "year_month": "2022-06",
+        "amount": 2857.8793666070237
+      },
+      {
+        "year_month": "2022-07",
+        "amount": 2706.070568007124
+      },
+      {
+        "year_month": "2022-08",
+        "amount": 1515.8621153519969
+      },
+      {
+        "year_month": "2022-09",
+        "amount": 2231.7779103926887
+      },
+      {
+        "year_month": "2022-10",
+        "amount": 1768.2776796014384
+      },
+      {
+        "year_month": "2022-11",
+        "amount": 2725.480224738832
+      },
+      {
+        "year_month": "2022-12",
+        "amount": 2133.301597830321
+      },
+      {
+        "year_month": "2023-01",
+        "amount": 2177.3737288244624
+      },
+      {
+        "year_month": "2023-02",
+        "amount": 1633.2817784921237
+      },
+      {
+        "year_month": "2023-03",
+        "amount": 2183.2071379480235
+      },
+      {
+        "year_month": "2023-04",
+        "amount": 2672.697063523119
+      },
+      {
+        "year_month": "2023-05",
+        "amount": 2451.173069037705
+      },
+      {
+        "year_month": "2023-06",
+        "amount": 2110.0472064281353
+      },
+      {
+        "year_month": "2023-07",
+        "amount": 2527.558329712594
+      },
+      {
+        "year_month": "2023-08",
+        "amount": 2285.225760033625
+      },
+      {
+        "year_month": "2023-09",
+        "amount": 2058.0311592668377
+      },
+      {
+        "year_month": "2023-10",
+        "amount": 2210.103030009081
+      },
+      {
+        "year_month": "2023-11",
+        "amount": 1347.7051081686845
+      },
+      {
+        "year_month": "2023-12",
+        "amount": 2056.705016909943
+      },
+      {
+        "year_month": "2024-01",
+        "amount": 2242.278693713809
+      },
+      {
+        "year_month": "2024-02",
+        "amount": 1751.6275849530414
+      },
+      {
+        "year_month": "2024-03",
+        "amount": 1515.2206074639057
+      },
+      {
+        "year_month": "2024-04",
+        "amount": 2268.4926467173573
+      },
+      {
+        "year_month": "2024-05",
+        "amount": 1509.0448811059427
+      },
+      {
+        "year_month": "2024-06",
+        "amount": 2298.615485180193
+      },
+      {
+        "year_month": "2024-07",
+        "amount": 2355.63205937505
+      },
+      {
+        "year_month": "2024-08",
+        "amount": 2358.538790915041
+      },
+      {
+        "year_month": "2024-09",
+        "amount": 2263.615569521086
+      },
+      {
+        "year_month": "2024-10",
+        "amount": 2374.0131471567765
+      },
+      {
+        "year_month": "2024-11",
+        "amount": 2087.7259664161065
+      },
+      {
+        "year_month": "2024-12",
+        "amount": 2561.200297161531
+      },
+      {
+        "year_month": "2025-01",
+        "amount": 2041.429582021742
+      },
+      {
+        "year_month": "2025-02",
+        "amount": 1937.4896707654189
+      },
+      {
+        "year_month": "2025-03",
+        "amount": 1459.6676416019627
+      },
+      {
+        "year_month": "2025-04",
+        "amount": 2755.2009078365277
+      }
+    ]
+  },
+  "anomalies": {
+    "detected_anomalies": [
+      {
+        "description": "Mike's Construction Co.",
+        "date": "2019-06-20",
+        "isExpense": true,
+        "amount": 495.9556781883472,
+        "category": "Home Improvement",
+        "id": "O31WEC1c69yVIkndADtJ",
+        "year": 2019,
+        "month": 6,
+        "year_month": "2019-06",
+        "anomaly_reason": "Amount 495.96 outside IQR bounds [-108.30, 190.31] for category 'Home Improvement'"
+      },
+      {
+        "description": "Mike's Construction Co.",
+        "date": "2018-05-11",
+        "isExpense": true,
+        "amount": 431.2658071203019,
+        "category": "Home Improvement",
+        "id": "lWivVhwXFAPxw3AkYpis",
+        "year": 2018,
+        "month": 5,
+        "year_month": "2018-05",
+        "anomaly_reason": "Amount 431.27 outside IQR bounds [-108.30, 190.31] for category 'Home Improvement'"
+      },
+      {
+        "description": "Mortgage Payment",
+        "date": "2022-10-11",
+        "isExpense": true,
+        "amount": 134.54199384732058,
+        "category": "Mortgage & Rent",
+        "id": "2HGGlJUnnWHJFihq2YZs",
+        "year": 2022,
+        "month": 10,
+        "year_month": "2022-10",
+        "anomaly_reason": "Amount 134.54 outside IQR bounds [-4.11, 128.51] for category 'Mortgage & Rent'"
+      },
+      {
+        "description": "Mortgage Payment",
+        "date": "2025-04-23",
+        "isExpense": true,
+        "amount": 129.4659952975146,
+        "category": "Mortgage & Rent",
+        "id": "FR36K4T6gfNZ7fPrjc4b",
+        "year": 2025,
+        "month": 4,
+        "year_month": "2025-04",
+        "anomaly_reason": "Amount 129.47 outside IQR bounds [-4.11, 128.51] for category 'Mortgage & Rent'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2024-12-24",
+        "isExpense": true,
+        "amount": 129.34793628281545,
+        "category": "Utilities",
+        "id": "1V6y8WZP6WuOiTsDvbJF",
+        "year": 2024,
+        "month": 12,
+        "year_month": "2024-12",
+        "anomaly_reason": "Amount 129.35 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2022-12-13",
+        "isExpense": true,
+        "amount": 127.45414030729845,
+        "category": "Utilities",
+        "id": "6IgQ9Y5V0DcpXXg99HYq",
+        "year": 2022,
+        "month": 12,
+        "year_month": "2022-12",
+        "anomaly_reason": "Amount 127.45 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2022-03-18",
+        "isExpense": true,
+        "amount": 105.22346611476466,
+        "category": "Utilities",
+        "id": "7K1HW7jjLusJPYmZsvIc",
+        "year": 2022,
+        "month": 3,
+        "year_month": "2022-03",
+        "anomaly_reason": "Amount 105.22 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Gas Company",
+        "date": "2024-01-31",
+        "isExpense": true,
+        "amount": 124.81155907416878,
+        "category": "Utilities",
+        "id": "9m1xXx9vKxUMibCnWBuk",
+        "year": 2024,
+        "month": 1,
+        "year_month": "2024-01",
+        "anomaly_reason": "Amount 124.81 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Power Company",
+        "date": "2021-11-10",
+        "isExpense": true,
+        "amount": 113.36845996449044,
+        "category": "Utilities",
+        "id": "9yKHQmBsDlRRrUejIZQ0",
+        "year": 2021,
+        "month": 11,
+        "year_month": "2021-11",
+        "anomaly_reason": "Amount 113.37 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2023-12-29",
+        "isExpense": true,
+        "amount": 107.543137074813,
+        "category": "Utilities",
+        "id": "AhOhhWhiHijSQRrfPtuP",
+        "year": 2023,
+        "month": 12,
+        "year_month": "2023-12",
+        "anomaly_reason": "Amount 107.54 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2023-10-09",
+        "isExpense": true,
+        "amount": 116.54688896296707,
+        "category": "Utilities",
+        "id": "BvEp5BaG0Rp5rc9Hm1GP",
+        "year": 2023,
+        "month": 10,
+        "year_month": "2023-10",
+        "anomaly_reason": "Amount 116.55 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2024-01-16",
+        "isExpense": true,
+        "amount": 121.17221474433232,
+        "category": "Utilities",
+        "id": "C9MRShwviM6NA81JFuCx",
+        "year": 2024,
+        "month": 1,
+        "year_month": "2024-01",
+        "anomaly_reason": "Amount 121.17 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2020-11-24",
+        "isExpense": true,
+        "amount": 128.64173852365593,
+        "category": "Utilities",
+        "id": "EAtBqvv6omqF3t3GGXKY",
+        "year": 2020,
+        "month": 11,
+        "year_month": "2020-11",
+        "anomaly_reason": "Amount 128.64 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2021-08-19",
+        "isExpense": true,
+        "amount": 134.30911031147562,
+        "category": "Utilities",
+        "id": "JwcPFqrfGRvZJC9oRWto",
+        "year": 2021,
+        "month": 8,
+        "year_month": "2021-08",
+        "anomaly_reason": "Amount 134.31 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Gas Company",
+        "date": "2021-08-30",
+        "isExpense": true,
+        "amount": 105.7226562865064,
+        "category": "Utilities",
+        "id": "KISLDxcYADGccbGpqQcL",
+        "year": 2021,
+        "month": 8,
+        "year_month": "2021-08",
+        "anomaly_reason": "Amount 105.72 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2024-12-27",
+        "isExpense": true,
+        "amount": 109.9938050237741,
+        "category": "Utilities",
+        "id": "NGCBNZuE0TzkbGriD8Km",
+        "year": 2024,
+        "month": 12,
+        "year_month": "2024-12",
+        "anomaly_reason": "Amount 109.99 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Gas Company",
+        "date": "2024-06-29",
+        "isExpense": true,
+        "amount": 126.27732373611887,
+        "category": "Utilities",
+        "id": "QoqltqSfj3rGulSdWeUM",
+        "year": 2024,
+        "month": 6,
+        "year_month": "2024-06",
+        "anomaly_reason": "Amount 126.28 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2025-04-14",
+        "isExpense": true,
+        "amount": 131.3155865278018,
+        "category": "Utilities",
+        "id": "R4FXURIECGaDUXreuWx7",
+        "year": 2025,
+        "month": 4,
+        "year_month": "2025-04",
+        "anomaly_reason": "Amount 131.32 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2022-02-07",
+        "isExpense": true,
+        "amount": 109.19380695156592,
+        "category": "Utilities",
+        "id": "TYwGz5WHuGltSMc6QgZv",
+        "year": 2022,
+        "month": 2,
+        "year_month": "2022-02",
+        "anomaly_reason": "Amount 109.19 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2020-10-14",
+        "isExpense": true,
+        "amount": 121.34094749136814,
+        "category": "Utilities",
+        "id": "W1UlyiANDUIeuYm8DV8H",
+        "year": 2020,
+        "month": 10,
+        "year_month": "2020-10",
+        "anomaly_reason": "Amount 121.34 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2021-11-15",
+        "isExpense": true,
+        "amount": 121.44822486088933,
+        "category": "Utilities",
+        "id": "WHdJygwMuxAObFEdHdoa",
+        "year": 2021,
+        "month": 11,
+        "year_month": "2021-11",
+        "anomaly_reason": "Amount 121.45 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2022-04-29",
+        "isExpense": true,
+        "amount": 129.5554829524921,
+        "category": "Utilities",
+        "id": "Xc0zn53rtiqLlzvHMHr1",
+        "year": 2022,
+        "month": 4,
+        "year_month": "2022-04",
+        "anomaly_reason": "Amount 129.56 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Credit Card Payment",
+        "date": "2018-01-03",
+        "isExpense": true,
+        "amount": 123.88595483563682,
+        "category": "Utilities",
+        "id": "Yy1D0NeO9d0HPy4vgUNQ",
+        "year": 2018,
+        "month": 1,
+        "year_month": "2018-01",
+        "anomaly_reason": "Amount 123.89 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Power Company",
+        "date": "2023-07-29",
+        "isExpense": true,
+        "amount": 121.05739022318652,
+        "category": "Utilities",
+        "id": "Z8I0gfLRFPaZJmxV80Ko",
+        "year": 2023,
+        "month": 7,
+        "year_month": "2023-07",
+        "anomaly_reason": "Amount 121.06 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2022-09-02",
+        "isExpense": true,
+        "amount": 113.50484777599225,
+        "category": "Utilities",
+        "id": "bPRzfUDMIsuWMzDxbcFU",
+        "year": 2022,
+        "month": 9,
+        "year_month": "2022-09",
+        "anomaly_reason": "Amount 113.50 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2023-09-14",
+        "isExpense": true,
+        "amount": 104.55877768954048,
+        "category": "Utilities",
+        "id": "eB0bLVGa5Lr1CCEnivdV",
+        "year": 2023,
+        "month": 9,
+        "year_month": "2023-09",
+        "anomaly_reason": "Amount 104.56 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2022-02-07",
+        "isExpense": true,
+        "amount": 106.67683188476006,
+        "category": "Utilities",
+        "id": "hWv6lfvn2Ysv6QyUwUe5",
+        "year": 2022,
+        "month": 2,
+        "year_month": "2022-02",
+        "anomaly_reason": "Amount 106.68 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Gas Company",
+        "date": "2021-07-14",
+        "isExpense": true,
+        "amount": 125.45899686710813,
+        "category": "Utilities",
+        "id": "lBpkQdGrl21gb8numxtP",
+        "year": 2021,
+        "month": 7,
+        "year_month": "2021-07",
+        "anomaly_reason": "Amount 125.46 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "City Water Charges",
+        "date": "2024-01-05",
+        "isExpense": true,
+        "amount": 118.68003746143587,
+        "category": "Utilities",
+        "id": "nXZ003zm2fXd16ztpfHF",
+        "year": 2024,
+        "month": 1,
+        "year_month": "2024-01",
+        "anomaly_reason": "Amount 118.68 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Gas Company",
+        "date": "2023-07-09",
+        "isExpense": true,
+        "amount": 119.96898314246668,
+        "category": "Utilities",
+        "id": "oBd63voBG9o4Fxe4G1NL",
+        "year": 2023,
+        "month": 7,
+        "year_month": "2023-07",
+        "anomaly_reason": "Amount 119.97 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Gas Company",
+        "date": "2024-07-06",
+        "isExpense": true,
+        "amount": 120.78784909373634,
+        "category": "Utilities",
+        "id": "oDB3LOvMrQznwDn8zBwZ",
+        "year": 2024,
+        "month": 7,
+        "year_month": "2024-07",
+        "anomaly_reason": "Amount 120.79 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Power Company",
+        "date": "2020-03-14",
+        "isExpense": true,
+        "amount": 117.64068686627594,
+        "category": "Utilities",
+        "id": "rcyDmZKhPsgBp2tGKnSl",
+        "year": 2020,
+        "month": 3,
+        "year_month": "2020-03",
+        "anomaly_reason": "Amount 117.64 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      },
+      {
+        "description": "Power Company",
+        "date": "2022-09-01",
+        "isExpense": true,
+        "amount": 126.09295760357496,
+        "category": "Utilities",
+        "id": "zXEdu26OqPYFu6TY0u5R",
+        "year": 2022,
+        "month": 9,
+        "year_month": "2022-09",
+        "anomaly_reason": "Amount 126.09 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+      }
+    ]
+  }
+}

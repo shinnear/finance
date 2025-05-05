@@ -1,0 +1,24 @@
+{
+  "personalized_tips": [
+    {
+      "type": "top_spending_category",
+      "severity": "info",
+      "message": "Your highest spending category overall is \"Restaurants\" (58025.71 total). Regularly reviewing expenses here might reveal savings opportunities."
+    },
+    {
+      "type": "anomaly_detected",
+      "severity": "warning",
+      "message": "We noticed an unusual transaction: 121.45 in \"Utilities\" around 2021-11-15. Was this expected? Amount 121.45 outside IQR bounds [-53.10, 103.05] for category 'Utilities'"
+    },
+    {
+      "type": "forecast_info",
+      "severity": "info",
+      "message": "Looking ahead, we forecast expenses around 2212.60 for 2025-05. Keep this in mind for your budget."
+    },
+    {
+      "type": "spending_increase_tip",
+      "severity": "warning",
+      "message": "Focus on \"Alcohol\": spending here jumped 25588% last month compared to your average. Review recent purchases in this category."
+    }
+  ]
+}

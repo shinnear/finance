@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart'; // Import Firebase Core
 import 'screens/transactions_screen.dart';
 import 'screens/summary_screen.dart';
 
-void main() {
+void main() async { // Make main function async
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter binding is initialized
+  await Firebase.initializeApp(); // Initialize Firebase
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   _MyAppState createState() => _MyAppState();

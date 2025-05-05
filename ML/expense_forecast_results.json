@@ -1,0 +1,40 @@
+{
+  "forecast": [
+    {
+      "month": "2025-05",
+      "predicted_amount": 2212.5954976833605,
+      "conf_int_lower": 1217.4799358531836,
+      "conf_int_upper": 3207.7110595135373
+    },
+    {
+      "month": "2025-06",
+      "predicted_amount": 2220.9383648821013,
+      "conf_int_lower": 1150.7306142644034,
+      "conf_int_upper": 3291.146115499799
+    },
+    {
+      "month": "2025-07",
+      "predicted_amount": 2162.0447635263117,
+      "conf_int_lower": 1041.604579008499,
+      "conf_int_upper": 3282.4849480441244
+    },
+    {
+      "month": "2025-08",
+      "predicted_amount": 2227.6919038308747,
+      "conf_int_lower": 1057.2145481352918,
+      "conf_int_upper": 3398.1692595264576
+    },
+    {
+      "month": "2025-09",
+      "predicted_amount": 2093.071214462484,
+      "conf_int_lower": 861.3937545219624,
+      "conf_int_upper": 3324.7486744030057
+    },
+    {
+      "month": "2025-10",
+      "predicted_amount": 2245.995324594574,
+      "conf_int_lower": 976.147968816498,
+      "conf_int_upper": 3515.8426803726497
+    }
+  ]
+}
