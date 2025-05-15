@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "zenfinance-7cfc7",
+  "private_key_id": "3f5a1edc8802cd8b76985a01080aa5c816db7cf0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCNG/8rVo/Xvmwe\nkrbgnMG1fpj5cWxwJvRPke5HzQKybFKLT0aPbStwIPkJrqRwgFhPs1KREMZg6cwW\nxXpalPzwLqsZPIrHyAf1Qju8dO/WQ5e89qJUvjcadKApAcYWpqqpIVShZaDdwkSI\nuc6M2pXynXFVPTPMDZhxW/hV9qcIB8QUKkVZsC9o31OMq4NXdMfF0efc6qB9Ekqy\nJQ0Vg7oE+hgyQgts10pZssnPZXPqgey55Cc1eHA+CtcnGw9l/Fi0wAWnPbmdGJce\nsK/sTJZPFlJqftKEB5etwxjUtlsBxA9bDX9JqRRxoY6BTpxU29uyX/M/9xCU49Cv\nGkchDTQHAgMBAAECggEAA/3sxA8Y1qOeb2b7IXONz1KbhUL+LFYNx0p7kTBtiRqj\nYymE933BItTr9qgoIr6ewPJzvYLZ+dfjXCmOAo4AcdMAKCCcVHaGMxwCkJxGRKt4\n2XGoufj/mhH+jeps7isc3NgCiuZTHLLoOW34N+ffIhPuJtkqY/VmgJ53cgceRo3W\n7yrIEI3e6JJQL4AIieuMPjQ9ogMys4CwYpmJuqeHNTThOQqBHJnPEOTR6I46+O3N\nQ/46/zyhNMe5AXc3I7hHelct81Sv/uNsd9m4wZFmhUGwi1UPhwm00sL2uvN4p+0c\n5jLATEisF/HgJ/kweLe/x/3lmUnEAonmR7tz3QL9wQKBgQC/k/DgYSTHa8xGdXqg\n2f6Wdw7Uld9/wdhVytohFB9PUOagXLioa/Ln+ubNdAWsLoD0fJfwuGITkN5/9f0J\n1mEPPkizmOep1T2sbYUS0ZgHRcHK77YPdpIr1kk1mUvsLZjacJMduq9ituaUSCri\nwg+uZto2kYxfzLgwMC3AzUOmNwKBgQC8j3PFKonSzSFOkPJ3n2rY+IiNThvgA2Nl\nZg+AjYH8I1s118ibL/0CK3JmNll+ZFqx2NhdgC0423CU4zWwGTbgKQz1eNiAgyvr\nnuromA9nLcEWY6QwrKHm8b2d7YLKC27AeL+g7qs2eh0ACxx7uftU0lUwgTbelRfo\nEm4ZdM74sQKBgA8f6OZuBO9RjWEKqVHFpBnQ8HTMGEcH0MKFL09pPUePxYVnjJSP\nYS/7WPljbYc4bKngpEY26FdPGqHTk9SQ/jyr2CWFrtRzp1jTlKv1rCD22uPgpOj3\nnXakhkcbASl2OBkWxiaUtIAAnJecUvZwB7jnGdcxCnoNuYTkaNhN3EdlAoGBAK5r\nS72gIakbEqooLgE1N5LIIxgCnopS2Aidpc1WGFzxH5foqKnUdAcjxUiDEbl2fuZw\nHYQv4qTrZ3Jx0eG5ESe9ET2nsSz/KQtlDwpkTis1CZz6QpC7v29vQeTqJMdcV/A2\nQZxN6ZYU0uqNXKWeXbwSa7bYb7bo1xpWof1uLV2hAoGAdzyfd9CHhzrdxlzlDAuA\n7HvvyihlsyKWQ2TZMSYDyJeitw5XD7HIKw9n2QGRxv5UlT2sdbHPTg3Syn9i+QES\nkFVaezD3MxqtnCkfYTkTK6o6fN9TeOs6qhfBuVwMhSUEM4ftY3s8Q18NlSQnkEwP\nhi2yhv6Evxk3feNrWg/7LNk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@zenfinance-7cfc7.iam.gserviceaccount.com",
+  "client_id": "118281962079723508759",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40zenfinance-7cfc7.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

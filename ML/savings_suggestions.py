@@ -11,7 +11,7 @@ import warnings
 warnings.simplefilter("ignore", FutureWarning)
 
 # --- Configuration ---
-CRED_PATH = "/home/ubuntu/firebase_credentials.json"
+CRED_PATH = "firebasecnx.json"
 COLLECTION_NAME = "transactions"
 # Configuration for savings suggestions
 TOP_N_CATEGORIES = 5 # Number of top spending categories to highlight
@@ -216,7 +216,7 @@ if __name__ == "__main__":
         results["error"] = f"An unexpected error occurred: {e}"
 
     # Output results as JSON
-    output_path = "/home/ubuntu/savings_suggestions_results.json"
+    output_path = "ML/savings_suggestions_results.json"
     print(f"\nSaving savings suggestions results to {output_path}...")
     try:
         with open(output_path, "w") as f:

@@ -43,10 +43,10 @@ def generate_tips(spending_data, forecast_data, savings_data):
             tips.append({
                 "type": "top_spending_category",
                 "severity": "info",
-                "message": f"Your highest spending category overall is "{top_category}" ({top_amount:.2f} total). Regularly reviewing expenses here might reveal savings opportunities."
+                "message": f'Your highest spending category overall is "{top_category}" (${top_amount:.2f} total). Regularly reviewing expenses here might reveal savings opportunities.'
             })
 
-        # Add more pattern-based tips here (e.g., trend analysis if implemented)
+            # Add more pattern-based tips here (e.g., trend analysis if implemented)
 
     if spending_data and "anomalies" in spending_data and "detected_anomalies" in spending_data["anomalies"]:
         anomalies = spending_data["anomalies"]["detected_anomalies"]
@@ -56,7 +56,7 @@ def generate_tips(spending_data, forecast_data, savings_data):
             tips.append({
                 "type": "anomaly_detected",
                 "severity": "warning",
-                "message": f"We noticed an unusual transaction: {anomaly.get('amount', 'N/A'):.2f} in "{anomaly.get('category', 'N/A')}" around {anomaly.get('date', 'N/A')}. Was this expected? {anomaly.get('anomaly_reason', '')}"
+                "message": f'We noticed an unusual transaction: ${anomaly.get("amount", "N/A"):.2f} in "{anomaly.get("category", "N/A")}" around {anomaly.get("date", "N/A")}. Was this expected? {anomaly.get("anomaly_reason", "")}'
             })
 
     # --- Tips based on Forecasts ---
@@ -68,7 +68,7 @@ def generate_tips(spending_data, forecast_data, savings_data):
         tips.append({
             "type": "forecast_info",
             "severity": "info",
-            "message": f"Looking ahead, we forecast expenses around {first_forecast_month['predicted_amount']:.2f} for {first_forecast_month['month']}. Keep this in mind for your budget."
+            "message": f'Looking ahead, we forecast expenses around ${first_forecast_month["predicted_amount"]:.2f} for {first_forecast_month["month"]}. Keep this in mind for your budget.'
         })
         # Add more sophisticated forecast tips (e.g., comparing trend)
 
@@ -87,7 +87,7 @@ def generate_tips(spending_data, forecast_data, savings_data):
             tips.append({
                 "type": "spending_increase_tip",
                 "severity": "warning",
-                "message": f"Focus on "{top_increase['category']}": spending here jumped {top_increase['percentage_increase']:.0%} last month compared to your average. Review recent purchases in this category."
+                "message": f'Focus on "{top_increase["category"]}": spending here jumped {top_increase["percentage_increase"]:.0%} last month compared to your average. Review recent purchases in this category.'
             })
         elif discretionary_suggestions:
             # Suggest reviewing top discretionary category
@@ -95,14 +95,14 @@ def generate_tips(spending_data, forecast_data, savings_data):
             tips.append({
                 "type": "discretionary_spending_tip",
                 "severity": "info",
-                "message": f"Your spending on discretionary items like "{top_disc}" was significant last month. This is often a good area to find potential savings."
+                "message": f'Your spending on discretionary items like "{top_disc}" was significant last month. This is often a good area to find potential savings.'
             })
         elif frequent_suggestions:
             freq_sugg = frequent_suggestions[0]
             tips.append({
                 "type": "frequent_purchases_tip",
                 "severity": "info",
-                "message": f"Those frequent small purchases in "{freq_sugg['category']}" ({freq_sugg['count']} times last month) add up! Consider if you can cut back slightly."
+                "message": f'Those frequent small purchases in "{freq_sugg["category"]}" ({freq_sugg["count"]} times last month) add up! Consider if you can cut back slightly.'
             })
         elif suggestions: # Generic fallback if specific types aren't present but others are
              generic_sugg = suggestions[0]
@@ -110,7 +110,7 @@ def generate_tips(spending_data, forecast_data, savings_data):
                  tips.append({
                      "type": "general_review_tip",
                      "severity": "info",
-                     "message": f"Reviewing your top spending categories from last month, like "{generic_sugg['details'][0]['category']}", is a good starting point for managing your budget."
+                     "message": f'Reviewing your top spending categories from last month, like "{generic_sugg["details"][0]["category"]}", is a good starting point for managing your budget.'
                  })
 
     # --- General Encouragement/Default Tip ---
@@ -138,8 +138,7 @@ if __name__ == "__main__":
     final_tips = generate_tips(spending_results, forecast_results, savings_results)
 
     # Output results as JSON
-    print(f"
-Saving personalized tips to {OUTPUT_FILE}...")
+    print(f"Saving personalized tips to {OUTPUT_FILE}...")
     try:
         with open(OUTPUT_FILE, "w") as f:
             json.dump(final_tips, f, indent=2, default=str)

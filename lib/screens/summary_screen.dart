@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart'; // For date formatting
+import 'package:webview_flutter/webview_flutter.dart';
 import '../models/transaction.dart';
 import '../services/transaction_service.dart'; // Import the TransactionService
+import '../services/ml_service.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 // Import cloud_firestore and hide Transaction
-import 'dart:io'; // Import for file operations
-import 'dart:convert'; // Import for JSON decoding
+// Import for file operations
+// Import for JSON decoding
 
 class SummaryScreen extends StatefulWidget {
   const SummaryScreen({super.key});
@@ -16,62 +20,66 @@ class SummaryScreen extends StatefulWidget {
 
 class SummaryScreenState extends State<SummaryScreen> {
   DateTime _selectedMonth = DateTime.now();
+  late final WebViewController _mlController;
+  bool _isLoadingML = true;
 
   final TransactionService _transactionService =
       TransactionService(); // Create an instance of the service
+  final MLService _mlService = MLService();
 
-  // State variable to hold personalized tips
+  // State variables for ML features
   List<dynamic> _personalizedTips = [];
-  bool _isLoadingTips = false;
+  Map<String, dynamic> _spendingAnalysis = {};
+  Map<String, dynamic> _savingsSuggestions = {};
+  Map<String, dynamic> _expenseForecast = {};
 
   @override
   void initState() {
     super.initState();
-    // We will set the initial month based on the first data received in the stream.
-    // No need to sort mock transactions here anymore.
-    // Load tips when the screen initializes
-    _loadPersonalizedTips();
+    _loadMLFeatures();
   }
 
-  Future<void> _loadPersonalizedTips() async {
+  void _initializeMLWebView() {
+    _mlController = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageFinished: (String url) {
+            setState(() {
+              _isLoadingML = false;
+            });
+          },
+        ),
+      )
+      ..loadRequest(Uri.parse('http://localhost:8501')); // Streamlit default port
+  }
+
+  Future<void> _loadMLFeatures() async {
     setState(() {
-      _isLoadingTips = true;
-      _personalizedTips = []; // Clear previous tips while loading
+      _isLoadingML = true;
     });
+
     try {
-      // Assuming the JSON file is in the ML folder at the project root
-      final file = File('ML/personalized_tips_results.json');
-      if (await file.exists()) {
-        final contents = await file.readAsString();
-        final jsonResponse = jsonDecode(contents);
-        if (jsonResponse != null && jsonResponse['personalized_tips'] is List) {
-          setState(() {
-            _personalizedTips = jsonResponse['personalized_tips'];
-          });
-        } else {
-           print('Warning: personalized_tips_results.json exists but does not contain a valid list of tips.');
-           setState(() {
-             _personalizedTips = [{'type': 'info', 'message': 'Could not load personalized tips.'}];
-           });
-        }
-      } else {
-        print('Info: personalized_tips_results.json not found.');
-         setState(() {
-           _personalizedTips = [{'type': 'info', 'message': 'Run ML scripts to generate personalized tips.'}];
-         });
-      }
+      // Load ML data from assets
+      final spendingAnalysisJson = await rootBundle.loadString('assets/ML/spending_analysis_results.json');
+      final savingsSuggestionsJson = await rootBundle.loadString('assets/ML/savings_suggestions_results.json');
+      final personalizedTipsJson = await rootBundle.loadString('assets/ML/personalized_tips_results.json');
+      final expenseForecastJson = await rootBundle.loadString('assets/ML/expense_forecast_results.json');
+
+      setState(() {
+        _spendingAnalysis = json.decode(spendingAnalysisJson);
+        _savingsSuggestions = json.decode(savingsSuggestionsJson);
+        _personalizedTips = json.decode(personalizedTipsJson)['personalized_tips'] ?? [];
+        _expenseForecast = json.decode(expenseForecastJson);
+      });
     } catch (e) {
-      print('Error loading personalized tips: $e');
-       setState(() {
-         _personalizedTips = [{'type': 'error', 'message': 'Error loading personalized tips: ${e.toString()}'}];
-       });
+      print('Error loading ML features: $e');
     } finally {
-       setState(() {
-         _isLoadingTips = false;
-       });
+      setState(() {
+        _isLoadingML = false;
+      });
     }
   }
-
 
   List<Transaction> _getTransactionsForMonth(
     List<Transaction> transactions,
@@ -169,6 +177,295 @@ class SummaryScreenState extends State<SummaryScreen> {
         const SizedBox(width: 8.0),
         Text(text, style: const TextStyle(fontSize: 14)),
       ],
+    );
+  }
+
+  Widget _buildMLInsightsSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'AI Insights',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        if (_isLoadingML)
+          const Center(child: CircularProgressIndicator())
+        else
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildSpendingAnalysisSection(),
+                _buildSavingsSuggestionsSection(),
+                _buildPersonalizedTipsSection(),
+                _buildExpenseForecastSection(),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildSpendingAnalysisSection() {
+    if (_spendingAnalysis.isEmpty) return const SizedBox.shrink();
+
+    final spendingPatterns = _spendingAnalysis['spending_patterns'];
+    if (spendingPatterns == null) return const SizedBox.shrink();
+
+    final categories = spendingPatterns['spending_by_category'] as List?;
+    if (categories == null || categories.isEmpty) return const SizedBox.shrink();
+
+    // Sort categories by sum in descending order
+    categories.sort((a, b) => (b['sum'] as double).compareTo(a['sum'] as double));
+
+    return Card(
+      margin: const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.analytics, color: Colors.blue),
+                SizedBox(width: 8),
+                Text(
+                  'Spending Analysis',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Total Spending: \$${spendingPatterns['total_spending'].toStringAsFixed(2)}',
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.blue,
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Top Spending Categories:',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 8),
+            ...categories.take(5).map((category) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Row(
+                children: [
+                  Container(
+                    width: 12,
+                    height: 12,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      '${category['category']}: \$${category['sum'].toStringAsFixed(2)}',
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  Text(
+                    '(${category['count']} transactions)',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSavingsSuggestionsSection() {
+    if (_savingsSuggestions.isEmpty) return const SizedBox.shrink();
+
+    final suggestions = _savingsSuggestions['savings_suggestions'] as List?;
+    if (suggestions == null || suggestions.isEmpty) return const SizedBox.shrink();
+
+    return Card(
+      margin: const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.savings, color: Colors.green),
+                SizedBox(width: 8),
+                Text(
+                  'Savings Suggestions',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            ...suggestions.map((suggestion) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      suggestion['type'] == 'spending_increase' 
+                          ? Icons.trending_up 
+                          : Icons.lightbulb_outline,
+                      color: suggestion['type'] == 'spending_increase' 
+                          ? Colors.orange 
+                          : Colors.amber,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        suggestion['message'],
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+                if (suggestion['details'] != null) ...[
+                  const SizedBox(height: 8),
+                  ...(suggestion['details'] as List).map((detail) => Padding(
+                    padding: const EdgeInsets.only(left: 28.0, top: 4.0),
+                    child: Text(
+                      '• ${detail['category']}: \$${detail['amount'].toStringAsFixed(2)}',
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  )),
+                ],
+                const SizedBox(height: 12),
+              ],
+            )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPersonalizedTipsSection() {
+    if (_personalizedTips.isEmpty) return const SizedBox.shrink();
+
+    return Card(
+      margin: const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.tips_and_updates, color: Colors.purple),
+                SizedBox(width: 8),
+                Text(
+                  'Personalized Tips',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            ..._personalizedTips.map((tip) =>
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      tip['severity'] == 'warning' ? Icons.warning : Icons.info,
+                      color: tip['severity'] == 'warning' ? Colors.orange : Colors.blue,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        tip['message'],
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildExpenseForecastSection() {
+    if (_expenseForecast.isEmpty) return const SizedBox.shrink();
+
+    return Card(
+      margin: const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.trending_up, color: Colors.red),
+                SizedBox(width: 8),
+                Text(
+                  'Expense Forecast',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            if (_expenseForecast['forecast'] != null)
+              ...(_expenseForecast['forecast'] as List).map((forecast) =>
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.calendar_today, color: Colors.grey, size: 20),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          '${forecast['month']}: \$${forecast['predicted_amount'].toStringAsFixed(2)}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -779,49 +1076,7 @@ class SummaryScreenState extends State<SummaryScreen> {
                   ),
                 ),
                 const SizedBox(height: 24.0),
-                // AI Integration Section - Display Personalized Tips
-                 Card(
-                  color: const Color(0xFFFAFAFA),
-                  elevation: 2.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Personalized Tips',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFF333333),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8.0),
-                        _isLoadingTips
-                            ? const Center(child: CircularProgressIndicator()) // Show loading indicator
-                            : _personalizedTips.isEmpty
-                                ? const Text('No personalized tips available yet. Run the ML scripts.', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.grey)) // Message if no tips
-                                : ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: const NeverScrollableScrollPhysics(), // Disable ListView's own scrolling
-                                    itemCount: _personalizedTips.length,
-                                    itemBuilder: (context, index) {
-                                      final tip = _personalizedTips[index];
-                                      // Basic display of the tip message
-                                      return ListTile(
-                                        leading: Icon(
-                                          tip['severity'] == 'warning' ? Icons.warning : Icons.info,
-                                          color: tip['severity'] == 'warning' ? Colors.amber[700] : Colors.blue[700],
-                                        ),
-                                        title: Text(tip['message'] ?? 'Unknown tip'),
-                                      );
-                                    },
-                                  ),
-                      ],
-                    ),
-                  ),
-                ),
-
+                _buildMLInsightsSection(),
               ],
             ),
           );

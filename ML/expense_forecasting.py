@@ -14,7 +14,7 @@ warnings.simplefilter("ignore", ConvergenceWarning)
 warnings.simplefilter("ignore", UserWarning) # Often related to frequency inference
 
 # --- Configuration ---
-CRED_PATH = "/home/ubuntu/firebase_credentials.json" # Corrected line
+CRED_PATH = "firebasecnx.json"
 COLLECTION_NAME = "transactions"
 FORECAST_STEPS = 6 # Number of months to forecast
 MIN_MONTHS_FOR_FORECAST = 24 # Minimum months of data required
@@ -163,13 +163,13 @@ if __name__ == "__main__":
         results["error"] = f"An unexpected error occurred: {e}"
 
     # Output results as JSON
-    output_path = "ML/expense_forecast_results.json"
-    print(f"
-Saving forecast results to {output_path}...")
+    output_path = 'ML/expense_forecast_results.json'
+    print(f"Saving forecast results to {output_path}...")
     try:
-        with open(output_path, "w") as f:
+        with open(output_path, 'w') as f:
             json.dump(results, f, indent=2, default=str)
         print("Forecast results saved successfully.")
     except Exception as e:
         print(f"Error saving results to JSON: {e}")
+        print("Results that failed to save:", json.dumps(results, indent=2, default=str))
 

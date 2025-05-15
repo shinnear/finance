@@ -7,22 +7,24 @@ import json
 import os
 
 # --- Configuration ---
-CRED_PATH = '/home/ubuntu/firebase_credentials.json'
+CRED_PATH = 'firebasecnx.json'
 COLLECTION_NAME = 'transactions'
 
 # --- Helper Functions ---
 
 def initialize_firebase(cred_path):
     """Initializes Firebase Admin SDK if not already initialized."""
+    print(f"Attempting to initialize Firebase with credentials from: {cred_path}")
     if not os.path.exists(cred_path):
         raise FileNotFoundError(f"Credentials file not found at {cred_path}")
     try:
         firebase_admin.get_app()
-        # print("Firebase app already initialized.")
+        print("Firebase app already initialized.")
     except ValueError:
-        # print("Initializing Firebase app...")
+        print("Initializing Firebase app...")
         cred = credentials.Certificate(cred_path)
         firebase_admin.initialize_app(cred)
+        print("Firebase app initialized successfully.")
 
 def safe_float_conversion(value):
     """Safely converts a value to float, returning NaN on error."""
@@ -158,6 +160,8 @@ if __name__ == "__main__":
     results = {}
     try:
         print("Starting data fetching and preprocessing...")
+        print(f"Using credentials file: {CRED_PATH}")
+        print(f"Current working directory: {os.getcwd()}")
         df_processed = fetch_and_preprocess_data(CRED_PATH, COLLECTION_NAME)
 
         if not df_processed.empty:
@@ -169,7 +173,8 @@ if __name__ == "__main__":
             anomalies = detect_anomalies_iqr(df_processed)
             results['anomalies'] = anomalies
         else:
-             results['error'] = "No valid expense data found for analysis."
+            print("No data was processed. DataFrame is empty.")
+            results['error'] = "No valid expense data found for analysis."
 
     except FileNotFoundError as e:
         print(f"Error: {e}")
@@ -179,21 +184,20 @@ if __name__ == "__main__":
         results['error'] = f"Data Error: {e}"
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+        print(f"Error type: {type(e)}")
+        import traceback
+        print(f"Traceback: {traceback.format_exc()}")
         results['error'] = f"An unexpected error occurred: {e}"
 
     # Output results as JSON
     output_path = 'ML/spending_analysis_results.json'
-    print(f"
-Saving results to {output_path}...")
+    print(f"Saving results to {output_path}...")
     try:
         with open(output_path, 'w') as f:
-            json.dump(results, f, indent=2, default=str) # Use default=str for any remaining non-serializable types
+            json.dump(results, f, indent=2, default=str)
         print("Results saved successfully.")
     except Exception as e:
         print(f"Error saving results to JSON: {e}")
-        # Fallback: Print results if saving fails
-        # print("
---- Results --- (JSON saving failed)")
-        # print(json.dumps(results, indent=2, default=str))
+        print("Results that failed to save:", json.dumps(results, indent=2, default=str))
 
 

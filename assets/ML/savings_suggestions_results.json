@@ -1,0 +1,72 @@
+{
+  "savings_suggestions": [
+    {
+      "type": "top_categories_last_month",
+      "message": "In April 2025, your top 5 spending categories were: Restaurants, Gas & Fuel, Utilities, Electronics & Software, Alcohol. Consider reviewing these areas.",
+      "details": [
+        {
+          "category": "Restaurants",
+          "amount": 980.1582849681483
+        },
+        {
+          "category": "Gas & Fuel",
+          "amount": 588.8470985485068
+        },
+        {
+          "category": "Utilities",
+          "amount": 261.65651233151175
+        },
+        {
+          "category": "Electronics & Software",
+          "amount": 217.90729161045164
+        },
+        {
+          "category": "Alcohol",
+          "amount": 184.2680195728092
+        }
+      ]
+    },
+    {
+      "type": "top_discretionary",
+      "message": "Among your top spending areas last month, these are often considered discretionary: Restaurants. Reducing spending here could lead to savings.",
+      "details": [
+        {
+          "category": "Restaurants",
+          "amount": 980.1582849681483
+        }
+      ]
+    },
+    {
+      "type": "spending_increase",
+      "category": "Alcohol",
+      "message": "Spending in \"Alcohol\" increased by 25588% last month compared to the previous 3-month average (spent 184.27 vs avg 0.72).",
+      "last_month_amount": 184.2680195728092,
+      "previous_avg_amount": 0.7173387925101021,
+      "percentage_increase": 255.87725450901806
+    },
+    {
+      "type": "spending_increase",
+      "category": "Utilities",
+      "message": "Spending in \"Utilities\" increased by 566% last month compared to the previous 3-month average (spent 261.66 vs avg 39.26).",
+      "last_month_amount": 261.65651233151175,
+      "previous_avg_amount": 39.26297816249118,
+      "percentage_increase": 5.664204412834842
+    },
+    {
+      "type": "spending_increase",
+      "category": "Mortgage & Rent",
+      "message": "Spending in \"Mortgage & Rent\" increased by 266% last month compared to the previous 3-month average (spent 129.47 vs avg 35.41).",
+      "last_month_amount": 129.4659952975146,
+      "previous_avg_amount": 35.41285266942469,
+      "percentage_increase": 2.65590415734271
+    },
+    {
+      "type": "spending_increase",
+      "category": "Gas & Fuel",
+      "message": "Spending in \"Gas & Fuel\" increased by 109% last month compared to the previous 3-month average (spent 588.85 vs avg 281.57).",
+      "last_month_amount": 588.8470985485068,
+      "previous_avg_amount": 281.5727266924999,
+      "percentage_increase": 1.0912788872182755
+    }
+  ]
+}

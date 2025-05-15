@@ -8,6 +8,7 @@ class Transaction {
   final double amount;
   final String category; // e.g., "Food", "Transport", "Salary", "Rent"
   final bool isExpense; // true for expense, false for income
+  final String type; // 'expense', 'income', 'saving'
 
   Transaction({
     this.id,
@@ -16,6 +17,7 @@ class Transaction {
     required this.amount,
     required this.category,
     required this.isExpense,
+    this.type = 'expense',
   });
 
   // Convert a Transaction object to a Map for Firestore
@@ -29,6 +31,7 @@ class Transaction {
       'amount': amount, // Store amount as double
       'category': category,
       'isExpense': isExpense, // Store boolean directly
+      'type': type,
     };
   }
 
@@ -125,6 +128,8 @@ class Transaction {
       isExpenseBool = false; // Default to false for unexpected types
     }
 
+    final String typeValue = data['type'] ?? 'expense';
+
     return Transaction(
       id: snapshot.id,
       date: parsedDate, // Assign the parsed DateTime object
@@ -132,6 +137,7 @@ class Transaction {
       amount: amountDouble, // Assign the parsed double amount
       category: data['category'] ?? '',
       isExpense: isExpenseBool, // Assign the parsed boolean value
+      type: typeValue,
     );
   }
 }
