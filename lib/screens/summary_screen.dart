@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart'; // For date formatting
-import 'package:webview_flutter/webview_flutter.dart';
 import '../models/transaction.dart';
 import '../services/transaction_service.dart'; // Import the TransactionService
 import '../services/ml_service.dart';
@@ -20,7 +19,6 @@ class SummaryScreen extends StatefulWidget {
 
 class SummaryScreenState extends State<SummaryScreen> {
   DateTime _selectedMonth = DateTime.now();
-  late final WebViewController _mlController;
   bool _isLoadingML = true;
 
   final TransactionService _transactionService =
@@ -37,21 +35,6 @@ class SummaryScreenState extends State<SummaryScreen> {
   void initState() {
     super.initState();
     _loadMLFeatures();
-  }
-
-  void _initializeMLWebView() {
-    _mlController = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setNavigationDelegate(
-        NavigationDelegate(
-          onPageFinished: (String url) {
-            setState(() {
-              _isLoadingML = false;
-            });
-          },
-        ),
-      )
-      ..loadRequest(Uri.parse('http://localhost:8501')); // Streamlit default port
   }
 
   Future<void> _loadMLFeatures() async {
